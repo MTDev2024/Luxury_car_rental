@@ -9,72 +9,7 @@
     <script src="https://unpkg.com/feather-icons"></script>
     <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap');
-        .wave-bg {
-            background: linear-gradient(180deg, #0a2463 0%, #3e92cc 100%);
-            position: relative;
-            overflow: hidden;
-        }
-        .wave-bg::after {
-            content: "";
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 300%;
-            height: 12rem;
-            background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1200 120" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"><path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" fill="%23f8f9fa" opacity=".25"/><path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" fill="%23f8f9fa" opacity=".5"/><path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" fill="%23f8f9fa"/></svg>');
-            animation: wave 15s linear infinite;
-            transform: translateY(1rem);
-        }
-        @keyframes wave {
-            0% { transform: translateX(0) translateY(1rem); }
-            100% { transform: translateX(-50%) translateY(1rem); }
-        }
-        .fish-hover:hover {
-            filter: drop-shadow(0 0 8px rgba(62, 146, 204, 0.6));
-            transition: all 0.3s ease;
-        }
-        .ripple {
-            position: relative;
-            overflow: hidden;
-        }
-        .ripple:after {
-            content: "";
-            display: block;
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            pointer-events: none;
-            background-image: radial-gradient(circle, #fff 10%, transparent 10.01%);
-            background-repeat: no-repeat;
-            background-position: 50%;
-            transform: scale(10, 10);
-            opacity: 0;
-            transition: transform .5s, opacity 1s;
-        }
-        .ripple:active:after {
-            transform: scale(0, 0);
-            opacity: 0.3;
-            transition: 0s;
-        }
-        .parallax {
-            background-attachment: fixed;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-        }
-        .swaying {
-            animation: sway 6s ease-in-out infinite alternate;
-            transform-origin: top center;
-        }
-        @keyframes sway {
-            0% { transform: rotate(-3deg); }
-            100% { transform: rotate(3deg); }
-        }
-    </style>
+
 </head>
 <body class="font-['Montserrat'] bg-gray-50 text-gray-800">
     <!-- Navigation -->
@@ -100,17 +35,34 @@
     </nav>
 
     <!-- Hero Section -->
-    <section id="accueil" class="wave-bg text-white min-h-screen flex items-center relative">
-        <div class="absolute inset-0 bg-black opacity-40"></div>
-        <div class="container mx-auto px-6 z-10 text-center">
-            <h1 class="text-4xl md:text-6xl font-bold mb-6 animate-fadeIn">Découvrez la pêche en mer à Dunkerque</h1>
-            <p class="text-xl md:text-2xl mb-12 max-w-3xl mx-auto animate-fadeIn delay-100">Une expérience authentique avec des guides professionnels en Mer du Nord</p>
-            <a href="#reservation" class="bg-white text-blue-800 px-8 py-3 rounded-full text-lg font-semibold hover:bg-gray-100 transition ripple animate-fadeIn delay-200">Réserver une sortie</a>
-        </div>
-        <div class="absolute bottom-10 left-0 right-0 flex justify-center animate-bounce">
-            <i data-feather="chevron-down" class="text-white"></i>
-        </div>
-    </section>
+  <section id="accueil" class="wave-bg text-white relative overflow-hidden">
+
+  <!-- Image de fond + voile sombre -->
+  <div class="absolute inset-0 z-0 w-screen h-full">
+    <img src="./assets/images/erwan-hesry-4im_altmxNc-unsplash.jpg" alt="Pêche en mer Dunkerque" class="w-full h-full object-cover">
+    <div class="absolute inset-0 bg-black opacity-40"></div>
+  </div>
+
+  <!-- Contenu principal -->
+  <div class="container mx-auto px-6 z-10 text-center py-24">
+    <h1 class="text-4xl md:text-6xl font-bold mb-6 animate-fadeIn">
+      Découvrez la pêche en mer à Dunkerque
+    </h1>
+    <p class="text-xl md:text-2xl mb-12 max-w-3xl mx-auto animate-fadeIn delay-100">
+      Une expérience authentique avec des guides professionnels en Mer du Nord
+    </p>
+    <a href="#reservation" class="bg-white text-blue-800 px-8 py-3 rounded-full text-lg font-semibold hover:bg-gray-100 transition ripple animate-fadeIn delay-200">
+      Réserver une sortie
+    </a>
+  </div>
+
+  <!-- Icône scroll -->
+  <div class="absolute bottom-4 left-0 right-0 flex justify-center animate-bounce z-10">
+    <i data-feather="chevron-down" class="text-white"></i>
+  </div>
+
+</section>
+
 
     <!-- About Section -->
     <section id="apropos" class="py-20 bg-white">
@@ -122,7 +74,7 @@
             <div class="flex flex-col md:flex-row items-center">
                 <div class="md:w-1/2 mb-10 md:mb-0 md:pr-10">
                     <div class="relative overflow-hidden rounded-lg shadow-xl">
-                        <img src="http://static.photos/technology/1024x576/10" alt="Intérieur du bateau" class="w-full h-auto">
+                        <img src="./assets/images/314_3030_7.b1a57900fc54683793d1d9934450ae8e.93416d89e3c7c7686fbe35abd8aa5f07.jpg" alt="Intérieur du bateau" class="w-full h-auto">
                         <div class="absolute inset-0 bg-gradient-to-t from-blue-900 opacity-30"></div>
                     </div>
                 </div>
@@ -232,7 +184,7 @@
                 <!-- Night Fishing -->
                 <div class="bg-white rounded-lg overflow-hidden shadow-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-2">
                     <div class="relative">
-                        <img src="http://static.photos/blue/640x360/3" alt="Pêche de nuit" class="w-full h-48 object-cover">
+                        <img src="./assets/images/alexander-cK9KXzUdpC0-unsplash.jpg" alt="Pêche de nuit" class="w-full h-48 object-cover">
                     </div>
                     <div class="p-6">
                         <h3 class="text-xl font-bold text-blue-800 mb-2">Pêche de nuit</h3>
